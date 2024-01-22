@@ -31,7 +31,7 @@ export default function Home() {
             </div>
             <div className="flex items-center justify-center m-auto pb-6">
               {isLoading ? (
-                <Skeleton className="w-[128px] h-[2.25rem]"/>
+                <Skeleton className="w-[128px] h-[2.25rem]" />
               ) : (
                 <span className="text-3xl animate-gauge_fadeIn">
                   {data.temperature.toFixed(1)} &deg;C
@@ -45,7 +45,7 @@ export default function Home() {
             </div>
             <div className="flex items-center justify-center m-auto pb-6">
               {isLoading ? (
-                <Skeleton className="w-[108px] h-[108px] rounded-full"/>
+                <Skeleton className="w-[108px] h-[108px] rounded-full" />
               ) : (
                 <Gauge
                   value={data.humidity.toFixed()}
@@ -58,13 +58,19 @@ export default function Home() {
           </div>
         </div>
         {isLoading ? (
-          <Skeleton className="w-[32rem] h-4 sm:h-6"/>
+          <Skeleton className="w-[32rem] h-4 sm:h-6" />
         ) : (
           <span className="text-sm text-center sm:text-base">
             Last Updated :{" "}
-            {DateTime.fromISO(data.time).toLocaleString(
-              DateTime.DATETIME_FULL_WITH_SECONDS
-            )}
+            {DateTime.fromISO(data.time).toLocaleString({
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "numeric",
+              minute: "2-digit",
+              timeZoneName: "short",
+              hour12: false
+            })}
           </span>
         )}
       </main>
