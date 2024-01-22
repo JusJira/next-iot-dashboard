@@ -43,6 +43,6 @@ export async function iterateRows() {
     data[field] = tableMeta.get(values, "_value")
     data["time"] = time
   }
-  console.log("\nIterateRows SUCCESS");
+  // console.log("\nIterateRows SUCCESS");
   return data;
 }
