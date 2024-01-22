@@ -6,7 +6,7 @@ const token = process.env.INFLUX_TOKEN
 
 const queryApi = new InfluxDB({ url, token }).getQueryApi("iot");
 const fluxQuery =
-  'from(bucket: "iot_data")|> range(start: 0, stop: now())|> filter(fn: (r) => r["_measurement"] == "mqtt_consumer")|> filter(fn: (r) => r["_field"] == "humidity" or r["_field"] == "pressure" or r["_field"] == "temperature")|> filter(fn: (r) => r["host"] == "967796e36885")|> filter(fn: (r) => r["topic"] == "esp32/sensors/")|> aggregateWindow(every: 10s, fn: last, createEmpty: false)|> last()';
+  'from(bucket: "iot_data")|> range(start: 0, stop: now())|> filter(fn: (r) => r["_measurement"] == "mqtt_consumer")|> filter(fn: (r) => r["_field"] == "humidity" or r["_field"] == "temperature")|> filter(fn: (r) => r["topic"] == "esp8266/sensors/")|> aggregateWindow(every: 10s, fn: last, createEmpty: false)|> last()';
 
 
 interface WeatherData {
