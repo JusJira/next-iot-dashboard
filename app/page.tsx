@@ -66,8 +66,9 @@ export default function Home() {
               year: "numeric",
               month: "long",
               day: "numeric",
-              hour: "numeric",
+              hour: "2-digit",
               minute: "2-digit",
+              second: "2-digit",
               timeZoneName: "short",
               hour12: false
             })}
