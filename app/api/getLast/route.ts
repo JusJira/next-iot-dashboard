@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic' 
 
-import { InfluxDB, FluxTableMetaData } from "@influxdata/influxdb-client";
+import { InfluxDB } from "@influxdata/influxdb-client";
 const url = "https://iot.influx.jjus.dev";
 const token = process.env.INFLUX_TOKEN
 
@@ -21,7 +21,7 @@ export async function GET() {
   return Response.json(data);
 }
 
-export async function iterateRows() {
+async function iterateRows() {
   const data: WeatherData = {
       "humidity": 0,
       "pressure": 0,
