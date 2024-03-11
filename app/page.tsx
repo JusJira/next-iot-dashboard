@@ -5,6 +5,7 @@ import { Gauge } from "@/components/gauge";
 import { DateTime } from "luxon";
 import { ModeToggle } from "@/components/themeToggle";
 import { Skeleton } from "@/components/ui/skeleton";
+import Link from "next/link";
 
 const fetcher = (url: string | URL | Request) =>
   fetch(url).then((res) => res.json());
@@ -75,7 +76,11 @@ export default function Home() {
           </span>
         )}
       </main>
-      <footer className="h-[80px]"></footer>
+      <footer className="h-[80px] flex flex-col items-center">
+        <span>Made with ❤️ by <Link className='underline' href='https://github.com/JusJira'>JusJira</Link></span>
+        <Link href='https://github.com/JusJira/next-iot-dashboard' className="underline">Source Code</Link>
+        
+      </footer>
     </>
   );
 }
